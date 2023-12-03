@@ -1,0 +1,96 @@
+<ion-card class="main-card">
+	<ion-card-header>
+		<ion-card-title class="home-fontsize">
+			Welcome to FOE Statistics!
+		</ion-card-title>
+		<ion-card-subtitle class="home-fontsize">
+			<p>
+				<b>
+					The purpose is to create an objective ranking of the special buildings and Great Monuments in Forge of Empires.
+				</b>
+			</p>
+			<p>
+				For this, the method is simple: to calculate an
+				<b>
+					efficiency rate based on normal, common, or 1x1 buildings
+				</b>
+				.
+			</p>
+			<p>
+				Remember that if you like a building, ultimately that's the most important thing. Here, we focus on providing a mathematical overview.
+			</p>
+			-------------------------------------------
+		</ion-card-subtitle>
+	</ion-card-header>
+	<ion-card-content>
+		<i>
+			<p>
+				<b>
+					The Great Buildings (GBs) have been based on their level 10
+				</b>
+				, which is a good compromise and may potentially be reviewed upwards by more advanced players.
+			</p>
+			<p>
+				The calculation age is set to Mars, which is neutral for age-dependent bonuses but devalues fixed bonuses. In other words, the ranking for an early-game player might be quite different.
+			</p>
+			<p>
+				A
+				<b>Benchmark</b>
+				is available. You can adjust it as you wish to give more or less importance to certain bonuses, and the calculations will be automatically updated.
+			</p>
+			<span>
+				Some calculations have specificities, which I list here for information:
+				<ul style="text-align: left;">
+					<li>
+						Certain Unique Bonuses could not be calculated. The efficiency is then displayed in italic and orange. Thus, this efficiency is undervalued.
+					</li>
+					<li>
+						All "motivation" bonuses are considered acquired.
+					</li>
+					<li>
+						When the bonus is limited to N uses, the formula is:
+						<span style="font-family: courier; font-size: x-small;">bonus x (log(N)/2)</span>
+						. The efficiency increases greatly with the bonus and slightly with the number of uses, decreasing as it gets higher.
+					</li>
+					<li>
+						Any random reward is replaced by its average.
+					</li>
+					<li>
+						Critical costs are calculated as an attack increase: chance x 0.5.
+					</li>
+					<li>
+						The Himeji Castle's building reward is included in its diamond reward.
+					</li>
+					<li>
+						The Tropical Forest gives twice as many plans at level 10. Considering that you obtain approximately 1 plan per day, this bonus is equivalent to 1 plan.
+					</li>
+				</ul>
+			</span>
+		</i>
+	</ion-card-content>
+</ion-card>
+<ion-card>
+	<ion-card-content>
+		Need help or want to contribute? :
+		<a href="https://github.com/Fx73/foe-stats"
+			target="_blank">
+			Visit Github
+			<ion-icon name="logo-github"
+				alt="https://github.com/Fx73/foe-stats">
+			</ion-icon>
+		</a>
+		<br>
+		Found a bug or have a feature request?
+		<a href="https://github.com/Fx73/foe-stats/issues"
+			target="_blank">
+			Create an issue on GitHub.
+		</a>
+	</ion-card-content>
+</ion-card>
+<div class="modal-buttons">
+	<ion-button (click)="dismiss()">OK</ion-button>
+	<ion-button (click)="dismissAndHide()"
+		color="secondary">
+		Don't show again
+	</ion-button>
+</div>

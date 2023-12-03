@@ -1,0 +1,17 @@
+.main-title {
+  font-size: max(1em,4vw);
+  min-height: 0.8em;
+  max-height: 1.6em;
+  height: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImg{
+  margin: 1vw;
+  min-height: 2em;
+  max-height: 4em;
+  height:4vw;
+  cursor: pointer;
+}

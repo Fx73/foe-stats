@@ -1,8 +1,8 @@
 {
-  "name": "FOE Stats",
+  "name": "FOE Statistics",
   "integrations": {
     "capacitor": {}
   },
   "type": "angular",
-  "id": "786bcb04"
+  "id": "7202c11e"
 }

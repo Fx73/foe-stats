@@ -4,12 +4,12 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #d0162f;
-  --ion-color-primary-rgb: 208, 22, 47;
+  --ion-color-primary: #eb445a;
+  --ion-color-primary-rgb: 235, 68, 90;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #b71329;
-  --ion-color-primary-tint: #d52d44;
+  --ion-color-primary-shade: #cf3c4f;
+  --ion-color-primary-tint: #ed576b;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -75,6 +75,18 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+@media (prefers-color-scheme: light) {
+  body {
+    --ion-background-color: #fcf8fa;
+  }
+  ion-card{
+    --ion-background-color: #ffe3f1;
+  }
+  ion-header{
+    --ion-background-color: #ffbadb;
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -83,12 +95,12 @@
    */
 
   body {
-    --ion-color-primary: #eca2ac;
-    --ion-color-primary-rgb: 236, 162, 172;
+    --ion-color-primary: #ff4961;
+    --ion-color-primary-rgb: 255, 73, 97;
     --ion-color-primary-contrast: #000000;
     --ion-color-primary-contrast-rgb: 0, 0, 0;
-    --ion-color-primary-shade: #d08f97;
-    --ion-color-primary-tint: #eeabb4;
+    --ion-color-primary-shade: #e04055;
+    --ion-color-primary-tint: #ff5b71;
 
     --ion-color-secondary: #50c8ff;
     --ion-color-secondary-rgb: 80,200,255;
@@ -153,7 +165,7 @@
    */
 
   .ios body {
-    --ion-background-color: #000000;
+    --ion-background-color: #831c1c;
     --ion-background-color-rgb: 0,0,0;
 
     --ion-text-color: #ffffff;
@@ -197,7 +209,7 @@
    */
 
   .md body {
-    --ion-background-color: #121212;
+    --ion-background-color: #3f2508;
     --ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #ffffff;
@@ -225,20 +237,12 @@
     --ion-color-step-900: #e7e7e7;
     --ion-color-step-950: #f3f3f3;
 
-    --ion-item-background: #1e1e1e;
+    --ion-item-background: #2e261e;
 
-    --ion-toolbar-background: #1f1f1f;
+    --ion-toolbar-background: #2e261e;
 
-    --ion-tab-bar-background: #1f1f1f;
+    --ion-tab-bar-background: #2e261e;
 
-    --ion-card-background: #1e1e1e;
+    --ion-card-background: #2e261e;
   }
-}
-
-html {
-  /* 
-   * For more information on dynamic font scaling, visit the documentation:
-   * https://ionicframework.com/docs/layout/dynamic-font-scaling
-   */
-  --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
