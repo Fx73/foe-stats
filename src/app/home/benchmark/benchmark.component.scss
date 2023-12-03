@@ -1,0 +1,11 @@
+.benchlist{
+  display: flex;
+  flex-wrap: wrap;
+  ion-item{
+    width: 100px;
+    ion-input{
+      margin-left: 10px;
+      padding: 0;
+    }
+  }
+}

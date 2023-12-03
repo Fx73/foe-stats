@@ -3,11 +3,11 @@ export const Config = {
 };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAioejZFLpCXIor9sIEWlCiozW6F5aEej4",
-  authDomain: "foe-stats.firebaseapp.com",
-  projectId: "foe-stats",
-  storageBucket: "foe-stats.appspot.com",
-  messagingSenderId: "822381414422",
-  appId: "1:822381414422:web:6e8ad589fb88bafa200d37",
-  measurementId: "G-Z6Z2CZZRGB"
+  apiKey: "AIzaSyC39MHvn-BUQGiCstpjTgSVtcuShhlQU6E",
+  authDomain: "foe-statistics.firebaseapp.com",
+  projectId: "foe-statistics",
+  storageBucket: "foe-statistics.appspot.com",
+  messagingSenderId: "659817726222",
+  appId: "1:659817726222:web:3132a48b5e4bce2c4a175f",
+  measurementId: "G-PW4R5NE5D7"
 };

@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule, ModalController } from '@ionic/angular';
 
+import { BenchmarkComponent } from './benchmark/benchmark.component';
+import { BenchmarkDTO } from '../shared/DTO/benchmarkDTO';
+import { CommonModule } from '@angular/common';
 import { HeaderComponent } from "../shared/header/header.component";
-import { NgIf } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, HeaderComponent, RouterModule, NgIf]
+  imports: [IonicModule, HeaderComponent, RouterModule, CommonModule, BenchmarkComponent]
 })
 export class HomePage {
-  constructor(private modalController: ModalController) {
+  benchmark: BenchmarkDTO = new BenchmarkDTO();
+
+  constructor() {
+
   }
 
 

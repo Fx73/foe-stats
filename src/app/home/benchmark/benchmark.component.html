@@ -1,0 +1,155 @@
+<ion-accordion-group>
+	<ion-accordion value="Benchmark">
+		<ion-item slot="header"
+			color="light">
+			<ion-label>Benchmark</ion-label>
+		</ion-item>
+		<div slot="content">
+			<ion-card>
+				<ion-card-content>
+					<ion-list class="benchlist">
+						<ion-item>
+							<ion-img src="assets/standard/population.png"
+								alt="Population"></ion-img>
+							<ion-input [(ngModel)]="benchmark.pop"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								aria-label="Pop"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/gold.png"
+								alt="Gold"></ion-img>
+							<ion-input [(ngModel)]="benchmark.gold"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/supplies.png"
+								alt="Supplies"></ion-img>
+							<ion-input [(ngModel)]="benchmark.supplies"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/resources.png"
+								alt="Resources"></ion-img>
+							<ion-input [(ngModel)]="benchmark.resources"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/happiness.png"
+								alt="Happiness"></ion-img>
+							<ion-input [(ngModel)]="benchmark.happiness"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/medals.png"
+								alt="Medals"></ion-img>
+							<ion-input [(ngModel)]="benchmark.medals"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/forge_points.png"
+								alt="Forge Points"></ion-img>
+							<ion-input [(ngModel)]="benchmark.forgepoint"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/att_attacker.png"
+								alt="Atk Attacker"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackAttacker"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_attacker.png"
+								alt="Dfs Attacker"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseAttacker"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/att_defender.png"
+								alt="Atk Defender"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackDefender"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_defender.png"
+								alt="Dfs Defender"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseDefender"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							%
+							<ion-img src="assets/standard/gold.png"
+								alt="%Gold"></ion-img>
+							<ion-input [(ngModel)]="benchmark.percentageGold"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							%
+							<ion-img src="assets/standard/supplies.png"
+								alt="%Supplies"></ion-img>
+							<ion-input [(ngModel)]="benchmark.percentageGoods"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/guild_goods.png"
+								alt="Guild Ressources"></ion-img>
+							<ion-input [(ngModel)]="benchmark.guildResource"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/diamond.png"
+								alt="Diamonds"></ion-img>
+							<ion-input [(ngModel)]="benchmark.diamonds"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/blueprint.png"
+								alt="Blueprint"></ion-img>
+							<ion-input [(ngModel)]="benchmark.blueprint"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/military.png"
+								alt="Units"></ion-img>
+							<ion-input [(ngModel)]="benchmark.units"
+								(ionChange)="saveBenchmark()"
+								step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+					</ion-list>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</ion-accordion>
+</ion-accordion-group>

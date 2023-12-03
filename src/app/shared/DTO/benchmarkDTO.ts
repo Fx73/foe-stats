@@ -1,0 +1,19 @@
+export class BenchmarkDTO {
+  pop: number = 1;
+  gold: number = 1;
+  supplies: number = 1;
+  resources: number = 1;
+  happiness: number = 1;
+  medals: number = 1;
+  forgepoint: number = 1;
+  attackAttacker: number = 1;
+  defenseAttacker: number = 1;
+  attackDefender: number = 1;
+  defenseDefender: number = 1;
+  percentageGold: number = 1;
+  percentageGoods: number = 1;
+  guildResource: number = 1;
+  diamonds: number = 1;
+  blueprint: number = 1;
+  units: number = 1;
+}
