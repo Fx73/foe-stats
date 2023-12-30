@@ -1,0 +1,19 @@
+<ion-accordion-group>
+	<ion-accordion value="Filters">
+		<ion-item slot="header"
+			color="light">
+			<ion-label>Filters & Sorting</ion-label>
+		</ion-item>
+		<div slot="content">
+			<ion-card>
+				<ion-card-content>
+					<ion-select [value]="filters.sortBy"
+						(ionChange)="sortChange($event)"
+						label="Sort by">
+						<ion-select-option *ngFor="let item of sortingEnum">{{item}}</ion-select-option>
+					</ion-select>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</ion-accordion>
+</ion-accordion-group>

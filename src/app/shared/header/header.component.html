@@ -8,7 +8,8 @@
 		<ion-buttons slot="end">
 			<ion-button (click)="refreshData()"
 				shape="round">
-				<ion-icon name="refresh-circle-outline"></ion-icon>
+				<ion-icon [color]="isworking() ? 'secondary' : 'tertiary' "
+					name="refresh-circle-outline"></ion-icon>
 			</ion-button>
 			<ion-button (click)="showModal()"
 				shape="round">

@@ -1,8 +1,13 @@
-<app-header title="FOE Statistics"></app-header>
+<app-header title="FOE Building Statistics"></app-header>
 <ion-content>
-	<app-benchmark (benchmarkEvent)="refreshBenchmark"></app-benchmark>
-	<ion-searchbar class="ion-no-padding"
+	<app-benchmark (benchmarkEvent)="refreshBenchmark($event)"></app-benchmark>
+	<app-filters (filtersEvent)="refreshFilters($event)"></app-filters>
+	<ion-searchbar [debounce]="1000"
+		(ionInput)="initQuery($event)"
+		class="ion-no-padding"
 		color="medium"></ion-searchbar>
-	<app-building *ngFor="let b of queryBuilding"
-		[building]="b"></app-building>
+	<div class="cardList">
+		<app-building *ngFor="let b of queryBuilding"
+			[building]="b"></app-building>
+	</div>
 </ion-content>

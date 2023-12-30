@@ -11,7 +11,7 @@
 						<ion-item>
 							<ion-img src="assets/standard/population.png"
 								alt="Population"></ion-img>
-							<ion-input [(ngModel)]="benchmark.pop"
+							<ion-input [(ngModel)]="benchmark.population"
 								(ionChange)="saveBenchmark()"
 								step="0.1"
 								aria-label="Pop"
@@ -50,15 +50,15 @@
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/medals.png"
+							<ion-img src="assets/standard/medal.png"
 								alt="Medals"></ion-img>
-							<ion-input [(ngModel)]="benchmark.medals"
+							<ion-input [(ngModel)]="benchmark.medal"
 								(ionChange)="saveBenchmark()"
 								step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/forge_points.png"
+							<ion-img src="assets/standard/forgepoint.png"
 								alt="Forge Points"></ion-img>
 							<ion-input [(ngModel)]="benchmark.forgepoint"
 								(ionChange)="saveBenchmark()"
@@ -98,8 +98,7 @@
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							%
-							<ion-img src="assets/standard/gold.png"
+							<ion-img src="assets/standard/percentagegold.png"
 								alt="%Gold"></ion-img>
 							<ion-input [(ngModel)]="benchmark.percentageGold"
 								(ionChange)="saveBenchmark()"
@@ -107,16 +106,15 @@
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							%
-							<ion-img src="assets/standard/supplies.png"
+							<ion-img src="assets/standard/percentagesupplies.png"
 								alt="%Supplies"></ion-img>
-							<ion-input [(ngModel)]="benchmark.percentageGoods"
+							<ion-input [(ngModel)]="benchmark.percentageSupplies"
 								(ionChange)="saveBenchmark()"
 								step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/guild_goods.png"
+							<ion-img src="assets/standard/guild_resources.png"
 								alt="Guild Ressources"></ion-img>
 							<ion-input [(ngModel)]="benchmark.guildResource"
 								(ionChange)="saveBenchmark()"
@@ -126,7 +124,7 @@
 						<ion-item>
 							<ion-img src="assets/standard/diamond.png"
 								alt="Diamonds"></ion-img>
-							<ion-input [(ngModel)]="benchmark.diamonds"
+							<ion-input [(ngModel)]="benchmark.diamond"
 								(ionChange)="saveBenchmark()"
 								step="0.1"
 								type="number"></ion-input>
@@ -142,7 +140,7 @@
 						<ion-item>
 							<ion-img src="assets/standard/military.png"
 								alt="Units"></ion-img>
-							<ion-input [(ngModel)]="benchmark.units"
+							<ion-input [(ngModel)]="benchmark.military"
 								(ionChange)="saveBenchmark()"
 								step="0.1"
 								type="number"></ion-input>

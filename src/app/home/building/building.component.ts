@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { BuildingDTO } from 'src/app/shared/DTO/buildingDTO';
+import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -8,7 +9,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './building.component.html',
   styleUrls: ['./building.component.scss'],
   standalone: true,
-  imports: [IonicModule]
+  imports: [IonicModule, CommonModule]
 })
 export class BuildingComponent {
 

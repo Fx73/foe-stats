@@ -16,6 +16,11 @@ export class WikiaService {
   private buildingsSubject: Subject<BuildingDTO[]> = new Subject<BuildingDTO[]>();
   buildingsObservable$ = this.buildingsSubject.asObservable();
 
+  public isWorking() {
+    return this.workers > 0
+  };
+  private workers = 0
+
   httpOptions = {
     headers: new HttpHeaders({ "Access-Control-Allow-Origin": "*" })
   };
@@ -24,56 +29,74 @@ export class WikiaService {
 
 
 
-  getBuildingList() {
+  getBuildingTest() {
+    console.log("test")
+    this.http.get(this.siteUrl + this.actionUrl + "Iridescent_Garden").subscribe(
+      (bValue: any) => {
+        console.log(bValue)
+        var a = this.jsonToBuilding("Iridescent_Garden", bValue.parse.text['*'], BuildingType.Special);
+        a?.changeToUnitary()
+        console.log(a)
+      })
 
   }
 
 
   async refreshBuildings(): Promise<any> {
-    try {
-      this.buildingsSubject.next([]);
-      this.getGreatBuildings()
-      this.getSpecialBuildings()
-    } catch (error) {
-      console.error('Erreur lors de la récupération de la page :', error);
-      throw error;
-    }
+    this.buildingsSubject.next([]);
+    //this.getGreatBuildings()
+    this.getSpecialBuildings()
+
   }
 
 
   getGreatBuildings() {
-    this.http.get(this.siteUrl + this.actionUrl + "Great_Building_List").subscribe((value) => {
-      let buildings = this.jsonToList(value);
-      const observables = buildings.map(building => {
-        return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
-          map((bValue: any) => {
-            return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.GM);
-          })
-        );
-      });
+    try {
+      this.workers += 1
+      this.http.get(this.siteUrl + this.actionUrl + "Great_Building_List").subscribe((value) => {
+        let buildings = this.jsonToList(value);
+        const observables = buildings.map(building => {
+          return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
+            map((bValue: any) => {
+              return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.GM);
+            })
+          );
+        });
 
-      forkJoin(observables).subscribe((buildingsDTO) => {
-        this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
+        forkJoin(observables).subscribe((buildingsDTO) => {
+          this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
+          this.workers -= 1
+        });
       });
-    });
+    } catch (error) {
+      console.error('Erreur lors de la récupération de la page :', error);
+      this.workers -= 1
+    }
   }
 
   getSpecialBuildings() {
-    this.http.get(this.siteUrl + this.actionUrl + "Special_Building_List").subscribe((value) => {
-      let buildings = this.jsonToList(value);
-      buildings = this.clearLeveledBuildings(buildings)
-      const observables = buildings.map(building => {
-        return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
-          map((bValue: any) => {
-            return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.Special);
-          })
-        );
-      });
+    try {
+      this.workers += 1
+      this.http.get(this.siteUrl + this.actionUrl + "Special_Building_List").subscribe((value) => {
+        let buildings = this.jsonToList(value);
+        buildings = this.clearLeveledBuildings(buildings)
+        const observables = buildings.map(building => {
+          return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
+            map((bValue: any) => {
+              return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.Special);
+            })
+          );
+        });
 
-      forkJoin(observables).subscribe((buildingsDTO) => {
-        this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
+        forkJoin(observables).subscribe((buildingsDTO) => {
+          this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
+          this.workers -= 1
+        });
       });
-    });
+    } catch (error) {
+      console.error('Erreur lors de la récupération de la page :', error);
+      this.workers -= 1
+    }
   }
 
   clearLeveledBuildings(buildings: Array<BuildingInfo>): Array<BuildingInfo> {
@@ -99,6 +122,8 @@ export class WikiaService {
 
   jsonToBuilding(name: string, jsonData: any, type: BuildingType): BuildingDTO | null {
     const building: BuildingDTO = new BuildingDTO(name, type)
+    console.log(name)
+
     const $ = cheerio.load(jsonData);
     let table = $('table');
 
@@ -128,6 +153,7 @@ export class WikiaService {
       const headerText = $(el).find('img').first().attr("alt")?.trim().split("-")[0] ?? "";
       columnHeaders.push(headerText);
     });
+    console.log(columnHeaders)
 
     // Extraction des données pour Space Age Mars
     const spaceAgeMarsRow = table.find('tr').filter((_, el) => $(el).text().includes('Space Age Mars'));
@@ -143,9 +169,10 @@ export class WikiaService {
 
     // Mapping des valeurs extraites aux propriétés du DTO
     columnHeaders.forEach((columnName, index) => {
-      building.mapProperty(columnName.toLowerCase(), values[index])
+      if (columnName)
+        building.mapProperty(columnName.toLowerCase(), values[index])
     });
-
+    console.log(building)
     return building as BuildingDTO
   }
 
@@ -157,7 +184,6 @@ export class WikiaService {
       const parser = new DOMParser();
       const htmlDocument = parser.parseFromString(specialBuildingList, 'text/html');
       const buildingRows = htmlDocument.querySelectorAll('tr');
-
 
       buildingRows.forEach(row => {
         const buildingData = {

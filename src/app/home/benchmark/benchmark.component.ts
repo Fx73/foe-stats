@@ -11,7 +11,7 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, FormsModule]
 })
-export class BenchmarkComponent {
+export class BenchmarkComponent implements OnInit {
 
   benchmark: BenchmarkDTO;
 
@@ -21,9 +21,12 @@ export class BenchmarkComponent {
   constructor() {
     let benchmarkjson = localStorage.getItem('benchmark')
     this.benchmark = benchmarkjson ? JSON.parse(benchmarkjson) : new BenchmarkDTO()
-
+    this.benchmarkEvent.emit(this.benchmark)
   }
 
+  ngOnInit(): void {
+    this.benchmarkEvent.emit(this.benchmark)
+  }
   saveBenchmark() {
     localStorage.setItem('benchmark', JSON.stringify(this.benchmark))
     this.benchmarkEvent.emit(this.benchmark)

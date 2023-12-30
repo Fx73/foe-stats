@@ -17,56 +17,94 @@
 				.
 			</p>
 			<p>
-				Remember that if you like a building, ultimately that's the most important thing. Here, we focus on providing a mathematical overview.
+				<i>
+					Remember that if you like a building, ultimately that's the most important thing. Here, we focus on providing a mathematical overview.
+				</i>
 			</p>
-			-------------------------------------------
 		</ion-card-subtitle>
 	</ion-card-header>
 	<ion-card-content>
-		<i>
-			<p>
-				<b>
-					The Great Buildings (GBs) have been based on their level 10
-				</b>
-				, which is a good compromise and may potentially be reviewed upwards by more advanced players.
-			</p>
-			<p>
-				The calculation age is set to Mars, which is neutral for age-dependent bonuses but devalues fixed bonuses. In other words, the ranking for an early-game player might be quite different.
-			</p>
-			<p>
-				A
-				<b>Benchmark</b>
-				is available. You can adjust it as you wish to give more or less importance to certain bonuses, and the calculations will be automatically updated.
-			</p>
-			<span>
-				Some calculations have specificities, which I list here for information:
-				<ul style="text-align: left;">
-					<li>
+		<ion-accordion-group value="Site">
+			<ion-accordion value="Site">
+				<ion-item slot="header"
+					color="light">
+					<ion-label>Site help</ion-label>
+				</ion-item>
+				<div slot="content">
+					<h2>Data</h2>
+					<p>
+						This website store the building list on your browser cache. If you clear it, everything will be reset !
+					</p>
+					<p>
+						<b>To start</b>
+						(and refresh data),
+						<b>
+							press the arrow button on top-right.
+						</b>
+						It will get data on the game wikia. It will take about one minute. Do not close the site while the arrow is blue !
+					</p>
+					<h2>Visualisation</h2>
+					<p>
+						Each card describe a building statistics. The detailed values are unitary (for 1 tile of the building).
+					</p>
+					<p>
 						Certain Unique Bonuses could not be calculated. The efficiency is then displayed in italic and orange. Thus, this efficiency is undervalued.
-					</li>
-					<li>
-						All "motivation" bonuses are considered acquired.
-					</li>
-					<li>
-						When the bonus is limited to N uses, the formula is:
-						<span style="font-family: courier; font-size: x-small;">bonus x (log(N)/2)</span>
-						. The efficiency increases greatly with the bonus and slightly with the number of uses, decreasing as it gets higher.
-					</li>
-					<li>
-						Any random reward is replaced by its average.
-					</li>
-					<li>
-						Critical costs are calculated as an attack increase: chance x 0.5.
-					</li>
-					<li>
-						The Himeji Castle's building reward is included in its diamond reward.
-					</li>
-					<li>
-						The Tropical Forest gives twice as many plans at level 10. Considering that you obtain approximately 1 plan per day, this bonus is equivalent to 1 plan.
-					</li>
-				</ul>
-			</span>
-		</i>
+					</p>
+					<h2>Customization</h2>
+					<p>
+						A
+						<b>Benchmark</b>
+						is available. You can adjust it as you wish to give more or less importance to certain bonuses, and the calculations will be automatically updated.
+					</p>
+				</div>
+			</ion-accordion>
+			<ion-accordion value="Mathematical">
+				<ion-item slot="header"
+					color="light">
+					<ion-label>Mathematical help</ion-label>
+				</ion-item>
+				<div slot="content">
+
+					<p>
+						<b>
+							The Great Buildings (GBs) have been based on their level 10
+						</b>
+						, which is a good compromise and may potentially be reviewed upwards by more advanced players.
+					</p>
+					<p>
+						The calculation age is set to Mars, which is neutral for age-dependent bonuses but devalues fixed bonuses. In other words, the ranking for an early-game player might be quite different.
+					</p>
+					<span>
+						Specifications :
+						<ul style="text-align: left; margin: 0;">
+							<i>
+								<li>
+									All "motivation" bonuses are considered acquired.
+								</li>
+								<li>
+									When the bonus is limited to N uses, the formula is:
+									<span style="font-family: courier; font-size: x-small;">bonus x (log(N)/2)</span>
+									. The efficiency increases greatly with the bonus and slightly with the number of uses, decreasing as it gets higher.
+								</li>
+								<li>
+									Any random reward is replaced by its average.
+								</li>
+								<li>
+									Critical costs are calculated as an attack increase: chance x 0.5.
+								</li>
+								<li>
+									The Himeji Castle's building reward is included in its diamond reward.
+								</li>
+								<li>
+									The Tropical Forest gives twice as many plans at level 10. Considering that you obtain approximately 1 plan per day, this bonus is equivalent to 1 plan.
+								</li>
+							</i>
+						</ul>
+					</span>
+
+				</div>
+			</ion-accordion>
+		</ion-accordion-group>
 	</ion-card-content>
 </ion-card>
 <ion-card>

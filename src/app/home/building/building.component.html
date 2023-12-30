@@ -3,9 +3,210 @@
 		<ion-card-title size="large">{{building.name}}</ion-card-title>
 	</ion-card-header>
 	<ion-card-content>
-		<ion-text>{{building.size}}</ion-text>
-		<ion-item>
-			<ion-img [src]="building.image"></ion-img>
-		</ion-item>
+		<ion-grid style="height: 240px;">
+			<ion-row>
+				<ion-col>
+					<ion-img [src]="building.image"></ion-img>
+				</ion-col>
+				<ion-col size="4">
+					<ion-list class="introList"
+						lines="inset">
+						<ion-item>
+							<ion-label>{{building.type}}</ion-label>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/size.png"
+								class="img-icon"></ion-img>
+							<ion-label>{{building.size}}</ion-label>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/efficiency.png"
+								class="img-icon"></ion-img>
+							<ion-label [color]="building.efficiency?.isPartial ? 'warning' : 'danger'">
+								{{building.efficiency?.global| number : '1.0-0'}}
+							</ion-label>
+						</ion-item>
+						<ion-item *ngIf="building.chain">
+							<ion-img src="assets/standard/chain.png"
+								class="img-icon"></ion-img>
+							<ion-label>{{building.chain}}</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-list lines="full"
+			class="propertyList">
+			<ion-item *ngIf="building.gold">
+				<ion-img src="assets/standard/gold.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.gold| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.gold| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.supplies">
+				<ion-img src="assets/standard/supplies.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.supplies| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.supplies| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.population">
+				<ion-img src="assets/standard/population.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.population| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.population| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.happiness">
+				<ion-img src="assets/standard/happiness.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.happiness| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.happiness| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.resources">
+				<ion-img src="assets/standard/resources.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.resources| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.resources| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.forgepoint">
+				<ion-img src="assets/standard/forgepoint.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.forgepoint| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.forgepoint| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.medal">
+				<ion-img src="assets/standard/medal.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.medal| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.medal| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.attackAttacker">
+				<ion-img src="assets/standard/att_attacker.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.attackAttacker| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.attackAttacker| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.defenseAttacker">
+				<ion-img src="assets/standard/def_attacker.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.defenseAttacker| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.defenseAttacker| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.attackDefender">
+				<ion-img src="assets/standard/att_defender.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.attackDefender| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.attackDefender| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.defenseDefender">
+				<ion-img src="assets/standard/def_defender.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.defenseDefender| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.defenseDefender| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.percentageGold">
+				<ion-img src="assets/standard/percentagegold.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.percentageGold| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.percentageGold| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.percentageSupplies">
+				<ion-img src="assets/standard/percentagesupplies.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.percentageSupplies| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.percentageSupplies| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.guildResource">
+				<ion-img src="assets/standard/guild_resources.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.guildResource| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.guildResource| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.diamond">
+				<ion-img src="assets/standard/diamond.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.diamond| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.diamond| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.blueprint">
+				<ion-img src="assets/standard/blueprint.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.blueprint| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.blueprint| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+			<ion-item *ngIf="building.military">
+				<ion-img src="assets/standard/military.png"
+					class="img-icon"></ion-img>
+				<ion-label>
+					{{building.military| number : '1.0-2'}}
+				</ion-label>
+				<ion-label>
+					{{building.efficiency?.military| number : '1.0-0'}}%
+				</ion-label>
+			</ion-item>
+		</ion-list>
 	</ion-card-content>
 </ion-card>

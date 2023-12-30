@@ -39,5 +39,8 @@ export class HeaderComponent implements OnInit {
     this.wikiaService.refreshBuildings()
   }
 
+  isworking() {
+    return this.wikiaService.isWorking()
+  }
 }
 

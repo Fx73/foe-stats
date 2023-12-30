@@ -4,8 +4,10 @@
   align-items: center;
   ion-card-header{
     padding: 1px;
+    text-align: left;
     ion-card-title{
       margin: 0px;
+      font-size:xx-large;
     }
   }
   ion-card-content{
@@ -18,7 +20,6 @@
     }
     ion-text{
       display: flex;
-      font-size:smaller;
       line-height: 1.1;
       margin-bottom: 1px;
     }
@@ -37,21 +38,15 @@
   flex-wrap: wrap;
   justify-content:flex-start;
   ion-card{
-    width: 24vw;
-    height: 50vh;
+    width: 500px;
+    height: 600px;
+    ion-grid{
+      height: 240px;
+    }
+    ion-list{
+      height: 300px;
+    }
   }
-}
-
-
-.menuCardBtn{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 14px;
-  height: auto;
-  --padding-start:0;
-  --padding-end:0;
- --background: lightgrey;
 }
 
 
