@@ -3,6 +3,7 @@ import { IonicModule, ModalController } from '@ionic/angular';
 
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from 'src/app/home/welcome/welcome.component';
+import { WikiaService } from './../../services/wikia.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   @Input()
   title: string = "Welcome";
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private wikiaService: WikiaService) { }
 
   ngOnInit() {
     if (!localStorage.getItem('hideModal'))
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  refreshData() {
+    this.wikiaService.refreshBuildings()
   }
 
 }

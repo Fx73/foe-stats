@@ -1,6 +1,8 @@
 <app-header title="FOE Statistics"></app-header>
 <ion-content>
-	<app-benchmark></app-benchmark>
+	<app-benchmark (benchmarkEvent)="refreshBenchmark"></app-benchmark>
 	<ion-searchbar class="ion-no-padding"
 		color="medium"></ion-searchbar>
+	<app-building *ngFor="let b of queryBuilding"
+		[building]="b"></app-building>
 </ion-content>

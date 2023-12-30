@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { BenchmarkDTO } from 'src/app/shared/DTO/benchmarkDTO';
 import { FormsModule } from '@angular/forms';
@@ -15,14 +15,17 @@ export class BenchmarkComponent {
 
   benchmark: BenchmarkDTO;
 
+  @Output()
+  benchmarkEvent: EventEmitter<BenchmarkDTO> = new EventEmitter<BenchmarkDTO>()
+
   constructor() {
-    let benchmarkjson = localStorage.getItem('benchmark');
-    this.benchmark = benchmarkjson ? JSON.parse(benchmarkjson) : new BenchmarkDTO();
+    let benchmarkjson = localStorage.getItem('benchmark')
+    this.benchmark = benchmarkjson ? JSON.parse(benchmarkjson) : new BenchmarkDTO()
 
   }
 
   saveBenchmark() {
-    localStorage.setItem('benchmark', JSON.stringify(this.benchmark));
-
+    localStorage.setItem('benchmark', JSON.stringify(this.benchmark))
+    this.benchmarkEvent.emit(this.benchmark)
   }
 }

@@ -6,6 +6,10 @@
 			src="assets/IconRounded.png"></ion-img>
 		<ion-title class="ion-text-center main-title">{{title}}</ion-title>
 		<ion-buttons slot="end">
+			<ion-button (click)="refreshData()"
+				shape="round">
+				<ion-icon name="refresh-circle-outline"></ion-icon>
+			</ion-button>
 			<ion-button (click)="showModal()"
 				shape="round">
 				<ion-icon name="information-circle-outline"></ion-icon>
