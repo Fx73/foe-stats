@@ -5,6 +5,7 @@
 
 .main-card{
   height: fit-content;
+  overflow-y: auto;
 }
 ion-card{
   margin-bottom: 0;
@@ -15,4 +16,8 @@ ion-card-content{
 
 p{
   margin-left: 2px;
+}
+
+.slotContent{
+  padding: 2px;
 }
