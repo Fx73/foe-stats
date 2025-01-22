@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FOE_STATISTICS }}'
           channelId: live
           projectId: foe-statistics
+          entryPoint: website
