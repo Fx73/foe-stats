@@ -7,12 +7,14 @@
 		<ion-title class="ion-text-center main-title">{{title}}</ion-title>
 		<ion-buttons slot="end">
 			<ion-button (click)="refreshData()"
-				shape="round">
+				shape="round"
+				size="large">
 				<ion-icon [color]="isworking() ? 'secondary' : 'tertiary' "
 					name="refresh-circle-outline"></ion-icon>
 			</ion-button>
 			<ion-button (click)="showModal()"
-				shape="round">
+				shape="round"
+				size="large">
 				<ion-icon name="information-circle-outline"></ion-icon>
 			</ion-button>
 		</ion-buttons>

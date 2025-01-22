@@ -1,6 +1,6 @@
 <ion-card class="main-card">
 	<ion-card-header>
-		<ion-card-title class="home-fontsize">
+		<ion-card-title class="home-title-fontsize">
 			Welcome to FOE Statistics!
 		</ion-card-title>
 		<ion-card-subtitle class="home-fontsize">
@@ -28,15 +28,15 @@
 			<ion-accordion value="Site">
 				<ion-item slot="header"
 					color="light">
-					<ion-label>Site help</ion-label>
+					<ion-label>How to start</ion-label>
 				</ion-item>
 				<div slot="content"
-					class="slotContent">
+					class="slot-content">
 					<h2>Data</h2>
 					<p>
 						This website store the building list on your browser cache. If you clear it, everything will be reset !
 					</p>
-					<p>
+					<p class="red-paragraph">
 						<b>To start</b>
 						(and refresh data),
 						<b>
@@ -52,7 +52,7 @@
 						Certain Unique Bonuses could not be calculated. The efficiency is then displayed in italic and orange. Thus, this efficiency is undervalued.
 					</p>
 					<h2>Customization</h2>
-					<p>
+					<p class="red-paragraph">
 						A
 						<b>Benchmark</b>
 						is available. You can adjust it as you wish to give more or less importance to certain bonuses, and the calculations will be automatically updated.
@@ -65,7 +65,7 @@
 					<ion-label>Mathematical help</ion-label>
 				</ion-item>
 				<div slot="content"
-					class="slotContent">
+					class="slot-content">
 					<p>
 						<b>
 							The Great Buildings (GBs) have been based on their level 10
@@ -76,7 +76,7 @@
 						The calculation age is set to Mars, which is neutral for age-dependent bonuses but devalues fixed bonuses. In other words, the ranking for an early-game player might be quite different.
 					</p>
 					<span>
-						Specifications :
+						<h2>Specifications :</h2>
 						<ul style="text-align: left; margin: 0;">
 							<i>
 								<li>
@@ -102,7 +102,6 @@
 							</i>
 						</ul>
 					</span>
-
 				</div>
 			</ion-accordion>
 			<ion-accordion value="Base Values">
@@ -110,7 +109,8 @@
 					color="light">
 					<ion-label>Base Values</ion-label>
 				</ion-item>
-				<div slot="content">
+				<div slot="content"
+					class="slot-content">
 					<ion-list>
 						<ion-item>
 							<ion-img src="assets/standard/happiness.png"
@@ -235,25 +235,32 @@
 					</ion-list>
 				</div>
 			</ion-accordion>
+			<ion-accordion value="Help or bug ?">
+				<ion-item slot="header"
+					color="light">
+					<ion-label>
+						Need help or report bug ?
+					</ion-label>
+				</ion-item>
+				<div slot="content"
+					class="slot-content">
+					Need help or want to contribute? :
+					<a href="https://github.com/Fx73/foe-stats"
+						target="_blank">
+						Visit Github
+						<ion-icon name="logo-github"
+							alt="https://github.com/Fx73/foe-stats">
+						</ion-icon>
+					</a>
+					<br>
+					Found a bug or have a feature request?
+					<a href="https://github.com/Fx73/foe-stats/issues"
+						target="_blank">
+						Create an issue on GitHub.
+					</a>
+				</div>
+			</ion-accordion>
 		</ion-accordion-group>
-	</ion-card-content>
-</ion-card>
-<ion-card>
-	<ion-card-content>
-		Need help or want to contribute? :
-		<a href="https://github.com/Fx73/foe-stats"
-			target="_blank">
-			Visit Github
-			<ion-icon name="logo-github"
-				alt="https://github.com/Fx73/foe-stats">
-			</ion-icon>
-		</a>
-		<br>
-		Found a bug or have a feature request?
-		<a href="https://github.com/Fx73/foe-stats/issues"
-			target="_blank">
-			Create an issue on GitHub.
-		</a>
 	</ion-card-content>
 </ion-card>
 <div class="modal-buttons">

@@ -6,6 +6,7 @@
 .main-card{
   height: fit-content;
   overflow-y: auto;
+  background-color: aliceblue;
 }
 ion-card{
   margin-bottom: 0;
@@ -18,6 +19,42 @@ p{
   margin-left: 2px;
 }
 
-.slotContent{
+.slot-content{
   padding: 2px;
+  padding-left: 10px;
+}
+
+.home-title-fontsize{
+  font-size: 100px;
+  color: brown;
+}
+.home-fontsize{
+  font-size: x-large;
+}
+
+.red-paragraph{
+  color: red;
+}
+
+h2{
+  font-size: large;
+  text-decoration: underline;
+}
+
+ion-accordion{
+  padding: 1px;
+}
+
+ion-list{
+  background-color: transparent;
+  padding: 0;
+  margin-left: -22px;
+  ion-item{
+    background-color: transparent;
+    --background:transparent;
+    ion-img{
+      padding-right: 4px;
+      padding-left: 4px;
+    }
+  }
 }
