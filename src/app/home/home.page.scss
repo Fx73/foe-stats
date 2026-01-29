@@ -54,3 +54,9 @@ ion-card{
 .home-fontsize{
   font-size: min(24px,2vw);
 }
+.cardList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+}

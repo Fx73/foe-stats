@@ -7,9 +7,17 @@ export class BenchmarkDTO {
   medal: number = 1;
   forgepoint: number = 1;
   attackAttacker: number = 1;
+  attackAttackerGBG: number = 1;
+  attackAttackerGEX: number = 1;
   defenseAttacker: number = 1;
+  defenseAttackerGBG: number = 1;
+  defenseAttackerGEX: number = 1;
   attackDefender: number = 1;
+  attackDefenderGBG: number = 1;
+  attackDefenderGEX: number = 1;
   defenseDefender: number = 1;
+  defenseDefenderGBG: number = 1;
+  defenseDefenderGEX: number = 1;
   percentageGold: number = 1;
   percentageSupplies: number = 1;
   guildResource: number = 1;
@@ -19,21 +27,29 @@ export class BenchmarkDTO {
 }
 
 export class UnitaryBenchmarks {
-  static population: number = 1054.7;
-  static gold: number = 17672;
-  static supplies: number = 3238;
-  static resources: number = 0.8;
-  static happiness: number = 940;
-  static medal: number = 111;
+  static population: number = 1000;
+  static gold: number = 20000;
+  static supplies: number = 3000;
+  static resources: number = 1;
+  static happiness: number = 1000;
+  static medal: number = 100;
   static forgepoint: number = 1;
   static attackAttacker: number = 1;
+  static attackAttackerGBG: number = 10;
+  static attackAttackerGEX: number = 10;
   static defenseAttacker: number = 4;
+  static defenseAttackerGBG: number = 10;
+  static defenseAttackerGEX: number = 10;
   static attackDefender: number = 4;
+  static attackDefenderGBG: number = 10;
+  static attackDefenderGEX: number = 10;
   static defenseDefender: number = 6;
+  static defenseDefenderGBG: number = 10;
+  static defenseDefenderGEZ: number = 10;
   static percentageGold: number = 3;
   static percentageSupplies: number = 3;
-  static guildResource: number = 0.9;
-  static diamond: number = 0.5;
-  static blueprint: number = 0.22;
-  static military: number = 0.16;
+  static guildResource: number = 1;
+  static diamond: number = 0.04;
+  static blueprint: number = 0.2;
+  static military: number = 1;
 }

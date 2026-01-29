@@ -1,7 +1,6 @@
 <ion-accordion-group>
 	<ion-accordion value="Benchmark">
-		<ion-item slot="header"
-			color="light">
+		<ion-item slot="header" color="light">
 			<ion-label>Benchmark</ion-label>
 		</ion-item>
 		<div slot="content">
@@ -9,140 +8,128 @@
 				<ion-card-content>
 					<ion-list class="benchlist">
 						<ion-item>
-							<ion-img src="assets/standard/population.png"
-								alt="Population"></ion-img>
-							<ion-input [(ngModel)]="benchmark.population"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
-								aria-label="Pop"
+							<ion-img src="assets/standard/population.png" alt="Population"></ion-img>
+							<ion-input [(ngModel)]="benchmark.population" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/gold.png"
-								alt="Gold"></ion-img>
-							<ion-input [(ngModel)]="benchmark.gold"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/gold.png" alt="Gold"></ion-img>
+							<ion-input [(ngModel)]="benchmark.gold" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/supplies.png"
-								alt="Supplies"></ion-img>
-							<ion-input [(ngModel)]="benchmark.supplies"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/supplies.png" alt="Supplies"></ion-img>
+							<ion-input [(ngModel)]="benchmark.supplies" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/resources.png"
-								alt="Resources"></ion-img>
-							<ion-input [(ngModel)]="benchmark.resources"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/resources.png" alt="Resources"></ion-img>
+							<ion-input [(ngModel)]="benchmark.resources" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/happiness.png"
-								alt="Happiness"></ion-img>
-							<ion-input [(ngModel)]="benchmark.happiness"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/happiness.png" alt="Happiness"></ion-img>
+							<ion-input [(ngModel)]="benchmark.happiness" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/medal.png"
-								alt="Medals"></ion-img>
-							<ion-input [(ngModel)]="benchmark.medal"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/medal.png" alt="Medals"></ion-img>
+							<ion-input [(ngModel)]="benchmark.medal" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/forgepoint.png"
-								alt="Forge Points"></ion-img>
-							<ion-input [(ngModel)]="benchmark.forgepoint"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/forgepoint.png" alt="Forge Points"></ion-img>
+							<ion-input [(ngModel)]="benchmark.forgepoint" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/att_attacker.png"
-								alt="Atk Attacker"></ion-img>
-							<ion-input [(ngModel)]="benchmark.attackAttacker"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/att_attacker.png" alt="Atk Attacker"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackAttacker" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/def_attacker.png"
-								alt="Dfs Attacker"></ion-img>
-							<ion-input [(ngModel)]="benchmark.defenseAttacker"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/att_attacker_gbg.png" alt="Atk Attacker GBG"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackAttackerGBG" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/att_attacker_gex.png" alt="Atk Attacker GEX"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackAttackerGEX" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_attacker.png" alt="Dfs Attacker"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseAttacker" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/att_defender.png"
-								alt="Atk Defender"></ion-img>
-							<ion-input [(ngModel)]="benchmark.attackDefender"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/def_attacker_gbg.png" alt="Dfs Attacker GBG"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseAttackerGBG" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_attacker_gex.png" alt="Dfs Attacker GEX"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseAttackerGEX" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/att_defender.png" alt="Atk Defender"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackDefender" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/def_defender.png"
-								alt="Dfs Defender"></ion-img>
-							<ion-input [(ngModel)]="benchmark.defenseDefender"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/att_defender_gbg.png" alt="Atk Defender GBG"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackDefenderGBG" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/att_defender_gex.png" alt="Atk Defender GEX"></ion-img>
+							<ion-input [(ngModel)]="benchmark.attackDefenderGEX" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_defender.png" alt="Dfs Defender"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseDefender" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/percentagegold.png"
-								alt="%Gold"></ion-img>
-							<ion-input [(ngModel)]="benchmark.percentageGold"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/def_defender_gbg.png" alt="Dfs Defender GBG"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseDefenderGBG" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/def_defender_gex.png" alt="Dfs Defender GEX"></ion-img>
+							<ion-input [(ngModel)]="benchmark.defenseDefenderGEX" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/percentagegold.png" alt="%Gold"></ion-img>
+							<ion-input [(ngModel)]="benchmark.percentageGold" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/percentagesupplies.png"
-								alt="%Supplies"></ion-img>
-							<ion-input [(ngModel)]="benchmark.percentageSupplies"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/percentagesupplies.png" alt="%Supplies"></ion-img>
+							<ion-input [(ngModel)]="benchmark.percentageSupplies" (ionChange)="saveBenchmark()"
+								step="0.1" type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/guild_resources.png" alt="Guild Ressources"></ion-img>
+							<ion-input [(ngModel)]="benchmark.guildResource" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/guild_resources.png"
-								alt="Guild Ressources"></ion-img>
-							<ion-input [(ngModel)]="benchmark.guildResource"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/diamond.png" alt="Diamonds"></ion-img>
+							<ion-input [(ngModel)]="benchmark.diamond" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/diamond.png"
-								alt="Diamonds"></ion-img>
-							<ion-input [(ngModel)]="benchmark.diamond"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/blueprint.png" alt="Blueprint"></ion-img>
+							<ion-input [(ngModel)]="benchmark.blueprint" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/blueprint.png"
-								alt="Blueprint"></ion-img>
-							<ion-input [(ngModel)]="benchmark.blueprint"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
-								type="number"></ion-input>
-						</ion-item>
-						<ion-item>
-							<ion-img src="assets/standard/military.png"
-								alt="Units"></ion-img>
-							<ion-input [(ngModel)]="benchmark.military"
-								(ionChange)="saveBenchmark()"
-								step="0.1"
+							<ion-img src="assets/standard/military.png" alt="Units"></ion-img>
+							<ion-input [(ngModel)]="benchmark.military" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 					</ion-list>

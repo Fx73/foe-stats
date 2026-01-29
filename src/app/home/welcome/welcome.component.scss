@@ -6,7 +6,7 @@
 .main-card{
   height: fit-content;
   overflow-y: auto;
-  background-color: aliceblue;
+  background-color: #bb9264;
 }
 ion-card{
   margin-bottom: 0;
@@ -33,7 +33,7 @@ p{
 }
 
 .red-paragraph{
-  color: red;
+  color: rgb(185, 0, 0);
 }
 
 h2{
@@ -43,6 +43,8 @@ h2{
 
 ion-accordion{
   padding: 1px;
+  background-color: transparent;
+  border: solid 1px #2e261e;
 }
 
 ion-list{
@@ -51,6 +53,7 @@ ion-list{
   margin-left: -22px;
   ion-item{
     background-color: transparent;
+    color: #2e261e;
     --background:transparent;
     ion-img{
       padding-right: 4px;

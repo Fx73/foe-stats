@@ -112,6 +112,14 @@ export class HomePage implements OnInit {
         b.efficiency.attackAttacker = b.attackAttacker / UnitaryBenchmarks.attackAttacker * this.benchmark.attackAttacker * 100
         b.efficiency.global += b.efficiency.attackAttacker
       }
+      if (b.attackAttackerGBG) {
+        b.efficiency.attackAttackerGBG = b.attackAttackerGBG / UnitaryBenchmarks.attackAttackerGBG * this.benchmark.attackAttackerGBG * 100
+        b.efficiency.global += b.efficiency.attackAttackerGBG
+      }
+      if (b.attackAttacker) {
+        b.efficiency.attackAttacker = b.attackAttacker / UnitaryBenchmarks.attackAttacker * this.benchmark.attackAttacker * 100
+        b.efficiency.global += b.efficiency.attackAttacker
+      }
       if (b.defenseAttacker) {
         b.efficiency.defenseAttacker = b.defenseAttacker / UnitaryBenchmarks.defenseAttacker * this.benchmark.defenseAttacker * 100
         b.efficiency.global += b.efficiency.defenseAttacker

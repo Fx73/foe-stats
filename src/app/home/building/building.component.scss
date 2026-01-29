@@ -8,9 +8,6 @@
   margin-right: 10px;
 }
 
-.propertyList{
-  overflow-y: auto;
-}
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -21,4 +18,42 @@
 ::-webkit-scrollbar-thumb {
   background: rgb(99, 42, 5);
   border-radius: 10px;
+}
+
+ion-card{
+  width: 320px;
+  height: 420px;
+  ion-card-header{
+    ion-card-title{
+      font-size: 1.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+    ion-card-subtitle{
+      font-size: 0.6rem;
+      font-style: italic;
+      color: rgb(220, 220, 220);
+    }
+  }
+  ion-card-content{
+    .propertyList{
+      overflow-y: auto;
+      height: 200px;
+      ion-item{
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.image-text-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  .aligned-image{
+    width:140px;
+    height:140px;
+  }
 }

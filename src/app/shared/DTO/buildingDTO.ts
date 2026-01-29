@@ -14,9 +14,17 @@ export class BuildingDTO {
   medal: number | undefined;
   forgepoint: number | undefined;
   attackAttacker: number | undefined;
+  attackAttackerGBG: number | undefined;
+  attackAttackerGEX: number | undefined;
   defenseAttacker: number | undefined;
+  defenseAttackerGBG: number | undefined;
+  defenseAttackerGEX: number | undefined;
   attackDefender: number | undefined;
+  attackDefenderGBG: number | undefined;
+  attackDefenderGEX: number | undefined;
   defenseDefender: number | undefined;
+  defenseDefenderGBG: number | undefined;
+  defenseDefenderGEX: number | undefined;
   percentageGold: number | undefined;
   percentageSupplies: number | undefined;
   guildResource: number | undefined;
@@ -122,12 +130,28 @@ export class BuildingDTO {
       this.medal /= this.size
     if (this.attackAttacker)
       this.attackAttacker /= this.size
+    if (this.attackAttackerGBG)
+      this.attackAttackerGBG /= this.size
+    if (this.attackAttackerGEX)
+      this.attackAttackerGEX /= this.size
     if (this.defenseAttacker)
       this.defenseAttacker /= this.size
+    if (this.defenseAttackerGBG)
+      this.defenseAttackerGBG /= this.size
+    if (this.defenseAttackerGEX)
+      this.defenseAttackerGEX /= this.size
     if (this.attackDefender)
       this.attackDefender /= this.size
+    if (this.attackDefenderGBG)
+      this.attackDefenderGBG /= this.size
+    if (this.attackDefenderGEX)
+      this.attackDefenderGEX /= this.size
     if (this.defenseDefender)
       this.defenseDefender /= this.size
+    if (this.defenseDefenderGBG)
+      this.defenseDefenderGBG /= this.size
+    if (this.defenseDefenderGEX)
+      this.defenseDefenderGEX /= this.size
     if (this.percentageGold)
       this.percentageGold /= this.size
     if (this.percentageSupplies)
@@ -161,9 +185,17 @@ export class BuildingEfficiency {
   medal: number | undefined;
   forgepoint: number | undefined;
   attackAttacker: number | undefined;
+  attackAttackerGBG: number | undefined;
+  attackAttackerGEX: number | undefined;
   defenseAttacker: number | undefined;
+  defenseAttackerGBG: number | undefined;
+  defenseAttackerGEX: number | undefined;
   attackDefender: number | undefined;
+  attackDefenderGBG: number | undefined;
+  attackDefenderGEX: number | undefined;
   defenseDefender: number | undefined;
+  defenseDefenderGBG: number | undefined;
+  defenseDefenderGEX: number | undefined;
   percentageGold: number | undefined;
   percentageSupplies: number | undefined;
   guildResource: number | undefined;
