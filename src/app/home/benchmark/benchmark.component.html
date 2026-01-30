@@ -38,8 +38,8 @@
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
-							<ion-img src="assets/standard/forgepoint.png" alt="Forge Points"></ion-img>
-							<ion-input [(ngModel)]="benchmark.forgepoint" (ionChange)="saveBenchmark()" step="0.1"
+							<ion-img src="assets/standard/forge_point.png" alt="Forge Points"></ion-img>
+							<ion-input [(ngModel)]="benchmark.forgePoint" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 						<ion-item>
@@ -130,6 +130,21 @@
 						<ion-item>
 							<ion-img src="assets/standard/military.png" alt="Units"></ion-img>
 							<ion-input [(ngModel)]="benchmark.military" (ionChange)="saveBenchmark()" step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/up_kit.png" alt="Up Kit"></ion-img>
+							<ion-input [(ngModel)]="benchmark.upKit" (ionChange)="saveBenchmark()" step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/self_aid_kit.png" alt="Self Aid Kit"></ion-img>
+							<ion-input [(ngModel)]="benchmark.aidKit" (ionChange)="saveBenchmark()" step="0.1"
+								type="number"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-img src="assets/standard/selection_kit.png" alt="Selection Kit"></ion-img>
+							<ion-input [(ngModel)]="benchmark.otherBuilding" (ionChange)="saveBenchmark()" step="0.1"
 								type="number"></ion-input>
 						</ion-item>
 					</ion-list>

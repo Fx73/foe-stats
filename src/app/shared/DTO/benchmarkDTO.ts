@@ -5,7 +5,7 @@ export class BenchmarkDTO {
   resources: number = 1;
   happiness: number = 1;
   medal: number = 1;
-  forgepoint: number = 1;
+  forgePoint: number = 1;
   attackAttacker: number = 1;
   attackAttackerGBG: number = 1;
   attackAttackerGEX: number = 1;
@@ -24,16 +24,19 @@ export class BenchmarkDTO {
   diamond: number = 1;
   blueprint: number = 1;
   military: number = 1;
+  upKit: number = 1;
+  aidKit: number = 1;
+  otherBuilding: number = 1;
 }
 
 export class UnitaryBenchmarks {
   static population: number = 1000;
   static gold: number = 20000;
-  static supplies: number = 3000;
+  static supplies: number = 1000;
   static resources: number = 1;
-  static happiness: number = 1000;
-  static medal: number = 100;
-  static forgepoint: number = 1;
+  static happiness: number = 1300;
+  static medal: number = 180;
+  static forgePoint: number = 1;
   static attackAttacker: number = 1;
   static attackAttackerGBG: number = 10;
   static attackAttackerGEX: number = 10;
@@ -52,4 +55,7 @@ export class UnitaryBenchmarks {
   static diamond: number = 0.04;
   static blueprint: number = 0.2;
   static military: number = 1;
+  static upKit: number = 1;
+  static aidKit: number = 1;
+  static otherBuilding: number = 1;
 }

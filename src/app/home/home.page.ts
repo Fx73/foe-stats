@@ -91,7 +91,6 @@ export class HomePage implements OnInit {
   }
   refreshFilters(filters: FiltersDTO) {
     this.filters = filters;
-    console.log(this.filters)
     this.queryList()
   }
 
@@ -118,9 +117,9 @@ export class HomePage implements OnInit {
         b.efficiency.resources = b.resources / UnitaryBenchmarks.resources * this.benchmark.resources * 100
         b.efficiency.global += b.efficiency.resources
       }
-      if (b.forgepoint) {
-        b.efficiency.forgepoint = b.forgepoint / UnitaryBenchmarks.forgepoint * this.benchmark.forgepoint * 100
-        b.efficiency.global += b.efficiency.forgepoint
+      if (b.forgePoint) {
+        b.efficiency.forgePoint = b.forgePoint / UnitaryBenchmarks.forgePoint * this.benchmark.forgePoint * 100
+        b.efficiency.global += b.efficiency.forgePoint
       }
       if (b.medal) {
         b.efficiency.medal = b.medal / UnitaryBenchmarks.medal * this.benchmark.medal * 100
@@ -173,6 +172,18 @@ export class HomePage implements OnInit {
       if (b.military) {
         b.efficiency.military = b.military / UnitaryBenchmarks.military * this.benchmark.military * 100
         b.efficiency.global += b.efficiency.military
+      }
+      if (b.upKit) {
+        b.efficiency.upKit = b.upKit / UnitaryBenchmarks.upKit * this.benchmark.upKit * 100
+        b.efficiency.global += b.efficiency.upKit
+      }
+      if (b.aidKit) {
+        b.efficiency.aidKit = b.aidKit / UnitaryBenchmarks.aidKit * this.benchmark.aidKit * 100
+        b.efficiency.global += b.efficiency.aidKit
+      }
+      if (b.otherBuilding) {
+        b.efficiency.otherBuilding = b.otherBuilding / UnitaryBenchmarks.otherBuilding * this.benchmark.otherBuilding * 100
+        b.efficiency.global += b.efficiency.otherBuilding
       }
     })
   }

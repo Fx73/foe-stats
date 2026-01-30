@@ -12,7 +12,7 @@ export class BuildingDTO {
   resources: number | undefined;
   happiness: number | undefined;
   medal: number | undefined;
-  forgepoint: number | undefined;
+  forgePoint: number | undefined;
   attackAttacker: number | undefined;
   attackAttackerGBG: number | undefined;
   attackAttackerGEX: number | undefined;
@@ -31,6 +31,9 @@ export class BuildingDTO {
   diamond: number | undefined;
   blueprint: number | undefined;
   military: number | undefined;
+  upKit: number | undefined;
+  aidKit: number | undefined;
+  otherBuilding: number | undefined;
 
   @jsonIgnore()
   efficiency: BuildingEfficiency | undefined;
@@ -64,7 +67,7 @@ export class BuildingDTO {
         this.medal = value
         break;
       case "strategy_points":
-        this.forgepoint = value
+        this.forgePoint = value
         break;
       case "att_boost_attacker":
         this.attackAttacker = value
@@ -124,8 +127,8 @@ export class BuildingDTO {
       this.happiness /= this.size
     if (this.resources)
       this.resources /= this.size
-    if (this.forgepoint)
-      this.forgepoint /= this.size
+    if (this.forgePoint)
+      this.forgePoint /= this.size
     if (this.medal)
       this.medal /= this.size
     if (this.attackAttacker)
@@ -164,6 +167,12 @@ export class BuildingDTO {
       this.blueprint /= this.size
     if (this.military)
       this.military /= this.size
+    if (this.upKit)
+      this.upKit /= this.size
+    if (this.aidKit)
+      this.aidKit /= this.size
+    if (this.otherBuilding)
+      this.otherBuilding /= this.size
   }
 }
 
@@ -183,7 +192,7 @@ export class BuildingEfficiency {
   resources: number | undefined;
   happiness: number | undefined;
   medal: number | undefined;
-  forgepoint: number | undefined;
+  forgePoint: number | undefined;
   attackAttacker: number | undefined;
   attackAttackerGBG: number | undefined;
   attackAttackerGEX: number | undefined;
@@ -202,6 +211,7 @@ export class BuildingEfficiency {
   diamond: number | undefined;
   blueprint: number | undefined;
   military: number | undefined;
-
-  isPartial = false;
+  upKit: number | undefined;
+  aidKit: number | undefined;
+  otherBuilding: number | undefined;
 }
