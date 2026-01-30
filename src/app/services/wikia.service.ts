@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 
-import { BehaviorSubject, Subject, forkJoin, lastValueFrom, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, finalize, forkJoin, lastValueFrom, map, switchMap } from 'rxjs';
 import { BuildingDTO, BuildingType } from './../shared/DTO/buildingDTO';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -13,8 +13,12 @@ export class WikiaService {
   private siteUrl = 'https://en.wiki.forgeofempires.com/api.php'
   private actionUrl = '?action=parse&format=json&origin=*&page='
 
+  private sheetUrl = 'https://sheets.googleapis.com/v4/spreadsheets/1o93Xv8juozCKnU3N1BdoON6cDx7rSICgYwYWZggqT6k/values/UnitaryBuildings?key=AIzaSyCNyB_Wfkwn7Hdsij5AXvgFE5eIAWD23AU'
+
   private buildingsSubject: Subject<BuildingDTO[]> = new Subject<BuildingDTO[]>();
   buildingsObservable$ = this.buildingsSubject.asObservable();
+
+  private fromWikia: Boolean = false;
 
   public isWorking() {
     return this.workers > 0
@@ -28,6 +32,75 @@ export class WikiaService {
   constructor(private http: HttpClient) { }
 
 
+  async refreshBuildings(): Promise<any> {
+    this.buildingsSubject.next([]);
+    if (this.fromWikia) {
+      this.getSpecialBuildingsFromWikia().subscribe(buildings => {
+        buildings.forEach(b => b.changeToUnitary());
+        this.buildingsSubject.next(buildings);
+      });
+    }
+    else {
+      this.getBuildingsFromSheet().subscribe(buildings => {
+        this.buildingsSubject.next(buildings);
+      });
+    }
+
+  }
+
+
+  getBuildingsFromSheet(): Observable<BuildingDTO[]> {
+    return this.http.get<any>(this.sheetUrl).pipe(
+      map(response => {
+        const rows = response.values;
+        const headers = rows[0];
+
+        return rows.slice(1).map((row: string[]) => {
+          return this.mapRowToBuilding(headers, row);
+        });
+      })
+    );
+  }
+  private mapRowToBuilding(headers: string[], row: string[]): BuildingDTO {
+    const nameIndex = headers.indexOf("Name");
+    const name = row[nameIndex] ?? "";
+
+    const building = new BuildingDTO(name);
+
+    headers.forEach((h, i) => {
+      const key = this.normalizeHeader(h);
+      const value = row[i];
+
+      if (key && value !== undefined) {
+        (building as any)[key] = this.parseValue(value);
+      }
+    });
+
+    return building;
+  }
+  private normalizeHeader(h: string): string | null {
+    if (!h) return null;
+    return h
+      .replace(/\s+/g, "")
+      .replace(/^\w/, c => c.toLowerCase());
+  }
+
+  private parseValue(v: string): any {
+    if (v === "" || v === null || v === undefined) return null;
+
+    const normalized = v.replace(",", ".");
+
+    if (!isNaN(Number(normalized))) return Number(normalized);
+
+    // IMAGE("url")
+    const match = v.match(/IMAGE\("([^"]+)"\)/i);
+    if (match) return match[1];
+
+    return v;
+  }
+
+
+
 
   getBuildingTest() {
     console.log("test")
@@ -38,66 +111,28 @@ export class WikiaService {
         a?.changeToUnitary()
         console.log(a)
       })
-
   }
 
+  getSpecialBuildingsFromWikia(): Observable<BuildingDTO[]> {
+    this.workers++;
 
-  async refreshBuildings(): Promise<any> {
-    this.buildingsSubject.next([]);
-    //this.getGreatBuildings()
-    this.getSpecialBuildings()
-
+    return this.http.get(this.siteUrl + this.actionUrl + "Special_Building_List").pipe(
+      map(value => this.clearLeveledBuildings(this.jsonToList(value))),
+      switchMap(buildings => {
+        const observables = buildings.map(building =>
+          this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
+            map((bValue: any) =>
+              this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.Special)
+            )
+          )
+        );
+        return forkJoin(observables);
+      }),
+      map(buildingsDTO => buildingsDTO.filter((b): b is BuildingDTO => b !== null)),
+      finalize(() => this.workers--)
+    );
   }
 
-
-  getGreatBuildings() {
-    try {
-      this.workers += 1
-      this.http.get(this.siteUrl + this.actionUrl + "Great_Building_List").subscribe((value) => {
-        let buildings = this.jsonToList(value);
-        const observables = buildings.map(building => {
-          return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
-            map((bValue: any) => {
-              return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.GM);
-            })
-          );
-        });
-
-        forkJoin(observables).subscribe((buildingsDTO) => {
-          this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
-          this.workers -= 1
-        });
-      });
-    } catch (error) {
-      console.error('Erreur lors de la récupération de la page :', error);
-      this.workers -= 1
-    }
-  }
-
-  getSpecialBuildings() {
-    try {
-      this.workers += 1
-      this.http.get(this.siteUrl + this.actionUrl + "Special_Building_List").subscribe((value) => {
-        let buildings = this.jsonToList(value);
-        buildings = this.clearLeveledBuildings(buildings)
-        const observables = buildings.map(building => {
-          return this.http.get(this.siteUrl + this.actionUrl + building.url).pipe(
-            map((bValue: any) => {
-              return this.jsonToBuilding(building.name, bValue.parse.text['*'], BuildingType.Special);
-            })
-          );
-        });
-
-        forkJoin(observables).subscribe((buildingsDTO) => {
-          this.buildingsSubject.next(buildingsDTO.filter(b => b).map(b => b!));
-          this.workers -= 1
-        });
-      });
-    } catch (error) {
-      console.error('Erreur lors de la récupération de la page :', error);
-      this.workers -= 1
-    }
-  }
 
   clearLeveledBuildings(buildings: Array<BuildingInfo>): Array<BuildingInfo> {
     const finalBuildings = new Array<BuildingInfo>();
@@ -156,7 +191,7 @@ export class WikiaService {
     console.log(columnHeaders)
 
     // Extraction des données pour Space Age Mars
-    const spaceAgeMarsRow = table.find('tr').filter((_, el) => $(el).text().includes('Space Age Mars'));
+    const spaceAgeMarsRow = table.find('tr').filter((_, el) => $(el).text().includes('Space Age Titan'));
     if (!spaceAgeMarsRow.length) {
       return null;
     }

@@ -30,9 +30,10 @@ export class HomePage implements OnInit {
   constructor(private wikiaService: WikiaService) {
     this.wikiaService.buildingsObservable$.subscribe((buildingsList: BuildingDTO[]) => {
       if (buildingsList && buildingsList.length > 0) {
-        buildingsList.forEach(b => b.changeToUnitary())
-        this.buildings = this.buildings.concat(buildingsList)
+        this.buildings = buildingsList
+        console.log("Buildings loaded: ", this.buildings);
         localStorage.setItem("buildings", JSON.stringify(this.buildings));
+
         this.computeEfficiency()
         this.queryList()
       } else {
@@ -55,18 +56,34 @@ export class HomePage implements OnInit {
   }
 
   queryList() {
-    this.queryBuilding = this.buildings.filter((b) => b.name.toLowerCase().indexOf(this.query) > -1)
+    if (this.filters.types && this.filters.types.length > 0) {
+      this.queryBuilding = this.buildings.filter(b =>
+        this.filters.types.includes(b.type)
+      );
+    }
+
+    this.queryBuilding = this.queryBuilding.filter(b =>
+      b.name.toLowerCase().includes(this.query.toLowerCase())
+    );
+
     switch (this.filters.sortBy) {
       case SortingEnum.Alphabetical:
-        this.queryBuilding = this.queryBuilding.sort((a, b) => a.name < b.name ? -1 : 1)
+        this.queryBuilding = this.queryBuilding.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
         break;
-      case SortingEnum.Efficiency:
-        this.queryBuilding = this.queryBuilding.sort((a, b) => a.efficiency?.global! > b.efficiency?.global! ? -1 : 1)
-        break;
-      default:
 
+      case SortingEnum.Efficiency:
+        this.queryBuilding = this.queryBuilding.sort((a, b) =>
+          (b.efficiency?.global ?? 0) - (a.efficiency?.global ?? 0)
+        );
+        break;
+
+      default:
+        break;
     }
   }
+
 
   refreshBenchmark(benchmark: BenchmarkDTO) {
     this.benchmark = benchmark;
@@ -74,6 +91,7 @@ export class HomePage implements OnInit {
   }
   refreshFilters(filters: FiltersDTO) {
     this.filters = filters;
+    console.log(this.filters)
     this.queryList()
   }
 

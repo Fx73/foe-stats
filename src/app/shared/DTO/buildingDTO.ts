@@ -170,7 +170,7 @@ export class BuildingDTO {
 
 export enum BuildingType {
   Standard = "Standard",
-  GM = "Great Buildings",
+  GM = "Great Building",
   Special = "Special",
   Event = "Event"
 }

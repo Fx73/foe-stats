@@ -46,10 +46,18 @@
 						It will get data on the game wikia. It will take about one minute. Do not close the site while
 						the arrow is blue !
 					</p>
+					<p>
+						The data is pulled from <a
+							href="https://docs.google.com/spreadsheets/d/1o93Xv8juozCKnU3N1BdoON6cDx7rSICgYwYWZggqT6k/edit?usp=sharing"
+							target="_blank">this google datasheet</a>. Do not hesitate to contribute to it.
+					</p>
 					<h2>Visualisation</h2>
 					<p>
 						Each card describe a building statistics. The detailed values are unitary (for 1 tile of the
 						building).
+					</p>
+					<p>
+						Difference between "Special" and "Event" buildings here is that Event buildings needs roads.
 					</p>
 					<p>
 						Certain Unique Bonuses could not be calculated. The efficiency is then displayed in italic and
@@ -66,18 +74,19 @@
 			</ion-accordion>
 			<ion-accordion value="Mathematical">
 				<ion-item slot="header" color="light">
-					<ion-label>Mathematical help</ion-label>
+					<ion-label>Mathematical Choices</ion-label>
 				</ion-item>
 				<div slot="content" class="slot-content">
 					<p>
 						<b>
-							The Great Buildings (GBs) have been based on their level 20
+							The Great Buildings (GBs) have been based on their level 40
 						</b>
 						, which is a good compromise and may potentially be reviewed upwards by more advanced players.
 					</p>
 					<p>
-						The calculation age is set to Mars, which is neutral for age-dependent bonuses but devalues
-						fixed bonuses. In other words, the ranking for an early-game player might be quite different.
+						The calculation age is set to Space Age Titan, which is neutral for age-dependent bonuses but
+						devalues fixed bonuses. In other words, the ranking for an early-game player might be a bit
+						different.
 					</p>
 					<span>
 						<h2>Specifications :</h2>
@@ -87,23 +96,26 @@
 									All "motivation" bonuses are considered acquired.
 								</li>
 								<li>
-									When the bonus is limited to N uses, the formula is:
-									<span style="font-family: courier; font-size: x-small;">bonus x (log(N)/2)</span>
-									. The efficiency increases greatly with the bonus and slightly with the number of
-									uses, decreasing as it gets higher.
+									Limited uses bonuses are considered acquired.
+								</li>
+								<li>
+									War tributes, diplomatic gifts and similar are considered acquired.
 								</li>
 								<li>
 									Any random reward is replaced by its average.
 								</li>
 								<li>
-									Critical costs are calculated as an attack increase: chance x 0.5.
+									Criticals are calculated as an attack increase: chance x 0.5.
 								</li>
 								<li>
-									The Himeji Castle's building reward is included in its diamond reward.
+									All Great Buildings with missing attribute are indicated with a *
 								</li>
 								<li>
-									The Tropical Forest gives twice as many plans at level 10. Considering that you
-									obtain approximately 1 plan per day, this bonus is equivalent to 1 plan.
+									The Tropical Forest estimation is calculated on an estimated base chance of 2%, with
+									100 daily interractions
+								</li>
+								<li>
+									Special goods are considered as 2 resources each (average cost of expedition)
 								</li>
 							</i>
 						</ul>
