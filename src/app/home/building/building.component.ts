@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { BuildingDTO } from 'src/app/shared/DTO/buildingDTO';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { BuildingDTO } from 'src/app/shared/DTO/buildingDTO';
 
 @Component({
   selector: 'app-building',
@@ -18,6 +18,18 @@ export class BuildingComponent {
 
   constructor() { }
 
+
+  getBuildingColor(building: BuildingDTO): string {
+    const lastchar = building.name.trim().charAt(building.name.trim().length - 1).toLowerCase();
+    switch (lastchar) {
+      case '+':
+        return 'warning';
+      case '*':
+        return 'danger';
+      default:
+        return 'secondary'
+    }
+  }
 
 
 }

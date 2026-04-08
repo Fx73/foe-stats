@@ -9,7 +9,7 @@
 			<ion-list class="introList" lines="inset">
 				<ion-item style="font-size: 1.2rem">
 					<ion-img src="assets/standard/efficiency.png" class="img-icon"></ion-img>
-					<ion-label [color]="building.name.charAt(building.name.length -1) === '*'? 'warning' : 'danger'">
+					<ion-label [color]="getBuildingColor(building)">
 						{{building.efficiency?.global| number : '1.0-0'}}
 					</ion-label>
 				</ion-item>

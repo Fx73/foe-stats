@@ -57,14 +57,15 @@ export class WikiaService {
 
         return rows.slice(1).map((row: string[]) => {
           return this.mapRowToBuilding(headers, row);
-        });
+        }).filter((b: BuildingDTO | null): b is BuildingDTO => b !== null);
       })
     );
   }
-  private mapRowToBuilding(headers: string[], row: string[]): BuildingDTO {
+  private mapRowToBuilding(headers: string[], row: string[]): BuildingDTO | null {
     const nameIndex = headers.indexOf("Name");
     const name = row[nameIndex] ?? "";
 
+    if (!name) return null;
     const building = new BuildingDTO(name);
 
     headers.forEach((h, i) => {
