@@ -181,7 +181,8 @@ export enum BuildingType {
   Standard = "Standard",
   GM = "Great Building",
   Special = "Special",
-  Event = "Event"
+  Event = "Event",
+  Production = "Production",
 }
 
 export class BuildingEfficiency {
