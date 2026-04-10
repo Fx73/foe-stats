@@ -33,11 +33,11 @@ export class UnitaryBenchmarks {
   static population: number = 1000;
   static gold: number = 20000;
   static supplies: number = 1000;
-  static resources: number = 1;
+  static resources: number = 2;
   static happiness: number = 1300;
   static medal: number = 180;
   static forgePoint: number = 1;
-  static attackAttacker: number = 1;
+  static attackAttacker: number = 4;
   static attackAttackerGBG: number = 10;
   static attackAttackerGEX: number = 10;
   static defenseAttacker: number = 4;
@@ -46,7 +46,7 @@ export class UnitaryBenchmarks {
   static attackDefender: number = 4;
   static attackDefenderGBG: number = 10;
   static attackDefenderGEX: number = 10;
-  static defenseDefender: number = 6;
+  static defenseDefender: number = 4;
   static defenseDefenderGBG: number = 10;
   static defenseDefenderGEZ: number = 10;
   static percentageGold: number = 3;
