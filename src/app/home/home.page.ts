@@ -1,16 +1,16 @@
+import { Component, OnInit } from '@angular/core';
 import { BenchmarkDTO, UnitaryBenchmarks } from '../shared/DTO/benchmarkDTO';
 import { BuildingDTO, BuildingEfficiency } from '../shared/DTO/buildingDTO';
-import { Component, OnInit } from '@angular/core';
 import { FiltersDTO, SortingEnum } from '../shared/DTO/filtersDTO';
 
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from "../shared/header/header.component";
+import { WikiaService } from './../services/wikia.service';
 import { BenchmarkComponent } from './benchmark/benchmark.component';
 import { BuildingComponent } from "./building/building.component";
-import { CommonModule } from '@angular/common';
 import { FiltersComponent } from "./filters/filters.component";
-import { HeaderComponent } from "../shared/header/header.component";
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { WikiaService } from './../services/wikia.service';
 
 @Component({
   selector: 'app-home',
@@ -82,6 +82,8 @@ export class HomePage implements OnInit {
       default:
         break;
     }
+
+    console.log("Query: ", this.queryBuilding);
   }
 
 
@@ -94,98 +96,26 @@ export class HomePage implements OnInit {
     this.queryList()
   }
 
+
   computeEfficiency() {
-    this.buildings.forEach(b => {
-      b.efficiency = new BuildingEfficiency()
-      if (b.gold) {
-        b.efficiency.gold = b.gold / UnitaryBenchmarks.gold * this.benchmark.gold * 100
-        b.efficiency.global += b.efficiency.gold
+    const keys = Object.keys(new BenchmarkDTO()) as (keyof BenchmarkDTO)[];
+
+    this.buildings.forEach(building => {
+      building.efficiency = new BuildingEfficiency();
+      for (const key of keys) {
+        const value = building[key];
+        if (!value) continue;
+
+        const unitary = UnitaryBenchmarks[key as keyof UnitaryBenchmarks];
+        const bench = this.benchmark[key as keyof BenchmarkDTO];
+
+        const score = (value / unitary) * bench * 100;
+
+        building.efficiency[key as keyof BuildingEfficiency] = score;
+        building.efficiency.global += score;
       }
-      if (b.supplies) {
-        b.efficiency.supplies = b.supplies / UnitaryBenchmarks.supplies * this.benchmark.supplies * 100
-        b.efficiency.global += b.efficiency.supplies
-      }
-      if (b.population) {
-        b.efficiency.population = b.population / UnitaryBenchmarks.population * this.benchmark.population * 100
-        b.efficiency.global += b.efficiency.population
-      }
-      if (b.happiness) {
-        b.efficiency.happiness = b.happiness / UnitaryBenchmarks.happiness * this.benchmark.happiness * 100
-        b.efficiency.global += b.efficiency.happiness
-      }
-      if (b.resources) {
-        b.efficiency.resources = b.resources / UnitaryBenchmarks.resources * this.benchmark.resources * 100
-        b.efficiency.global += b.efficiency.resources
-      }
-      if (b.forgePoint) {
-        b.efficiency.forgePoint = b.forgePoint / UnitaryBenchmarks.forgePoint * this.benchmark.forgePoint * 100
-        b.efficiency.global += b.efficiency.forgePoint
-      }
-      if (b.medal) {
-        b.efficiency.medal = b.medal / UnitaryBenchmarks.medal * this.benchmark.medal * 100
-        b.efficiency.global += b.efficiency.medal
-      }
-      if (b.attackAttacker) {
-        b.efficiency.attackAttacker = b.attackAttacker / UnitaryBenchmarks.attackAttacker * this.benchmark.attackAttacker * 100
-        b.efficiency.global += b.efficiency.attackAttacker
-      }
-      if (b.attackAttackerGBG) {
-        b.efficiency.attackAttackerGBG = b.attackAttackerGBG / UnitaryBenchmarks.attackAttackerGBG * this.benchmark.attackAttackerGBG * 100
-        b.efficiency.global += b.efficiency.attackAttackerGBG
-      }
-      if (b.attackAttacker) {
-        b.efficiency.attackAttacker = b.attackAttacker / UnitaryBenchmarks.attackAttacker * this.benchmark.attackAttacker * 100
-        b.efficiency.global += b.efficiency.attackAttacker
-      }
-      if (b.defenseAttacker) {
-        b.efficiency.defenseAttacker = b.defenseAttacker / UnitaryBenchmarks.defenseAttacker * this.benchmark.defenseAttacker * 100
-        b.efficiency.global += b.efficiency.defenseAttacker
-      }
-      if (b.attackDefender) {
-        b.efficiency.attackDefender = b.attackDefender / UnitaryBenchmarks.attackDefender * this.benchmark.attackDefender * 100
-        b.efficiency.global += b.efficiency.attackDefender
-      }
-      if (b.defenseDefender) {
-        b.efficiency.defenseDefender = b.defenseDefender / UnitaryBenchmarks.defenseDefender * this.benchmark.defenseDefender * 100
-        b.efficiency.global += b.efficiency.defenseDefender
-      }
-      if (b.percentageGold) {
-        b.efficiency.percentageGold = b.percentageGold / UnitaryBenchmarks.percentageGold * this.benchmark.percentageGold * 100
-        b.efficiency.global += b.efficiency.percentageGold
-      }
-      if (b.percentageSupplies) {
-        b.efficiency.percentageSupplies = b.percentageSupplies / UnitaryBenchmarks.percentageSupplies * this.benchmark.percentageSupplies * 100
-        b.efficiency.global += b.efficiency.percentageSupplies
-      }
-      if (b.guildResource) {
-        b.efficiency.guildResource = b.guildResource / UnitaryBenchmarks.guildResource * this.benchmark.guildResource * 100
-        b.efficiency.global += b.efficiency.guildResource
-      }
-      if (b.diamond) {
-        b.efficiency.diamond = b.diamond / UnitaryBenchmarks.diamond * this.benchmark.diamond * 100
-        b.efficiency.global += b.efficiency.diamond
-      }
-      if (b.blueprint) {
-        b.efficiency.blueprint = b.blueprint / UnitaryBenchmarks.blueprint * this.benchmark.blueprint * 100
-        b.efficiency.global += b.efficiency.blueprint
-      }
-      if (b.military) {
-        b.efficiency.military = b.military / UnitaryBenchmarks.military * this.benchmark.military * 100
-        b.efficiency.global += b.efficiency.military
-      }
-      if (b.upKit) {
-        b.efficiency.upKit = b.upKit / UnitaryBenchmarks.upKit * this.benchmark.upKit * 100
-        b.efficiency.global += b.efficiency.upKit
-      }
-      if (b.aidKit) {
-        b.efficiency.aidKit = b.aidKit / UnitaryBenchmarks.aidKit * this.benchmark.aidKit * 100
-        b.efficiency.global += b.efficiency.aidKit
-      }
-      if (b.otherBuilding) {
-        b.efficiency.otherBuilding = b.otherBuilding / UnitaryBenchmarks.otherBuilding * this.benchmark.otherBuilding * 100
-        b.efficiency.global += b.efficiency.otherBuilding
-      }
-    })
+    });
   }
+
 
 }
