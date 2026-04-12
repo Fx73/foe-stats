@@ -48,7 +48,7 @@ export class UnitaryBenchmarks {
   static attackDefenderGEX: number = 10;
   static defenseDefender: number = 4;
   static defenseDefenderGBG: number = 10;
-  static defenseDefenderGEZ: number = 10;
+  static defenseDefenderGEX: number = 10;
   static percentageGold: number = 3;
   static percentageSupplies: number = 3;
   static guildResource: number = 1;
